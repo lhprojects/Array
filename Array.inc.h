@@ -55,10 +55,10 @@ namespace lah {
 		if(fElements == nullptr || fN1 != N1) {
 			dealloc();
 			fElements = new TYPE[N1];
+			fN1 = N1;
 			if (std::is_trivially_constructible<TYPE>::value) {
 				zeroize();
 			}
-			fN1 = N1;
 		}
 	}
 	template<class TYPE>
@@ -66,10 +66,10 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2) {
 			dealloc();
 			fElements = new TYPE[N1*N2];
+			fN1 = N1; fN2 = N2;
 			if (std::is_trivially_constructible<TYPE>::value) {
 				zeroize();
 			}
-			fN1 = N1; fN2 = N2;
 		}
 	}
 	template<class TYPE>
@@ -77,10 +77,10 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3];
+			fN1 = N1; fN2 = N2; fN3 = N3;
 			if (std::is_trivially_constructible<TYPE>::value) {
 				zeroize();
 			}
-			fN1 = N1; fN2 = N2; fN3 = N3;
 		}
 	}
 	template<class TYPE>
@@ -88,10 +88,10 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3||fN4 != N4) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4];
+			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4;
 			if (std::is_trivially_constructible<TYPE>::value) {
 				zeroize();
 			}
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4;
 		}
 	}
 	template<class TYPE>
@@ -100,10 +100,10 @@ namespace lah {
 			|| fN5 != N5) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4*N5];
+			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5;
 			if (std::is_trivially_constructible<TYPE>::value) {
 				zeroize();
 			}
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5=N5;
 		}
 	}
 	template<class TYPE>
@@ -112,10 +112,10 @@ namespace lah {
 			||fN5 != N5||fN6 != N6) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4*N5*N6];
+			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5; fN6 = N6;
 			if (std::is_trivially_constructible<TYPE>::value) {
 				zeroize();
 			}
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5=N5; fN6=N6;
 		}
 	}
 	template<class TYPE>
@@ -124,10 +124,10 @@ namespace lah {
 			||fN5 != N5||fN6 != N6||fN7 != N7) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4*N5*N6*N7];
+			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5; fN6 = N6; fN7 = N7;
 			if (std::is_trivially_constructible<TYPE>::value) {
 				zeroize();
 			}
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5=N5; fN6=N6; fN7=N7;
 		}
 	}
 
