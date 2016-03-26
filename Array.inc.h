@@ -52,10 +52,12 @@ namespace lah {
 
 	template<class TYPE>
 	void Array1<TYPE>::alloc(int N1) {
-		if(fElements == nullptr||fN1 != N1) {
+		if(fElements == nullptr || fN1 != N1) {
 			dealloc();
-			fElements = (TYPE*)malloc(sizeof(TYPE)*N1);
-			if(fElements == nullptr) ARRAY_ERROR("");
+			fElements = new TYPE[N1];
+			if (std::is_trivially_constructible<TYPE>::value) {
+				zeroize();
+			}
 			fN1 = N1;
 		}
 	}
@@ -63,8 +65,10 @@ namespace lah {
 	void Array2<TYPE>::alloc(int N1, int N2) {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2) {
 			dealloc();
-			fElements = (TYPE*)malloc(sizeof(TYPE)*N1*N2);
-			if(fElements == nullptr) ARRAY_ERROR("");
+			fElements = new TYPE[N1*N2];
+			if (std::is_trivially_constructible<TYPE>::value) {
+				zeroize();
+			}
 			fN1 = N1; fN2 = N2;
 		}
 	}
@@ -72,8 +76,10 @@ namespace lah {
 	void Array3<TYPE>::alloc(int N1, int N2, int N3) {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3) {
 			dealloc();
-			fElements = (TYPE*)malloc(sizeof(TYPE)*N1*N2*N3);
-			if(fElements == nullptr) ARRAY_ERROR("");
+			fElements = new TYPE[N1*N2*N3];
+			if (std::is_trivially_constructible<TYPE>::value) {
+				zeroize();
+			}
 			fN1 = N1; fN2 = N2; fN3 = N3;
 		}
 	}
@@ -81,8 +87,10 @@ namespace lah {
 	void Array4<TYPE>::alloc(int N1, int N2, int N3, int N4) {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3||fN4 != N4) {
 			dealloc();
-			fElements = (TYPE*)malloc(sizeof(TYPE)*N1*N2*N3*N4);
-			if(fElements == nullptr) ARRAY_ERROR("");
+			fElements = new TYPE[N1*N2*N3*N4];
+			if (std::is_trivially_constructible<TYPE>::value) {
+				zeroize();
+			}
 			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4;
 		}
 	}
@@ -91,8 +99,10 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3||fN4 != N4
 			|| fN5 != N5) {
 			dealloc();
-			fElements = (TYPE*)malloc(sizeof(TYPE)*N1*N2*N3*N4*N5);
-			if(fElements == nullptr) ARRAY_ERROR("");
+			fElements = new TYPE[N1*N2*N3*N4*N5];
+			if (std::is_trivially_constructible<TYPE>::value) {
+				zeroize();
+			}
 			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5=N5;
 		}
 	}
@@ -101,8 +111,10 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3||fN4 != N4
 			||fN5 != N5||fN6 != N6) {
 			dealloc();
-			fElements = (TYPE*)malloc(sizeof(TYPE)*N1*N2*N3*N4*N5*N6);
-			if(fElements == nullptr) ARRAY_ERROR("");
+			fElements = new TYPE[N1*N2*N3*N4*N5*N6];
+			if (std::is_trivially_constructible<TYPE>::value) {
+				zeroize();
+			}
 			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5=N5; fN6=N6;
 		}
 	}
@@ -111,8 +123,10 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3||fN4 != N4
 			||fN5 != N5||fN6 != N6||fN7 != N7) {
 			dealloc();
-			fElements = (TYPE*)malloc(sizeof(TYPE)*N1*N2*N3*N4*N5*N6*N7);
-			if(fElements == nullptr) ARRAY_ERROR("");
+			fElements = new TYPE[N1*N2*N3*N4*N5*N6*N7];
+			if (std::is_trivially_constructible<TYPE>::value) {
+				zeroize();
+			}
 			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5=N5; fN6=N6; fN7=N7;
 		}
 	}
