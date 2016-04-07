@@ -134,7 +134,7 @@ namespace lah {
 	template<class TYPE>
 	void Array1<TYPE>::dealloc() {
 		if(fElements != nullptr) {
-			::free(fElements);
+			delete[] fElements;
 			fElements = nullptr;
 			fN1 = 0;
 		}
@@ -142,7 +142,7 @@ namespace lah {
 	template<class TYPE>
 	void Array2<TYPE>::dealloc() {
 		if(fElements != nullptr) {
-			::free(fElements);
+			delete[] fElements;
 			fElements = nullptr;
 			fN1 = 0; fN2 = 0;
 		}
@@ -150,7 +150,7 @@ namespace lah {
 	template<class TYPE>
 	void Array3<TYPE>::dealloc() {
 		if(fElements != nullptr) {
-			::free(fElements);
+			delete[] fElements;
 			fElements = nullptr;
 			fN1 = 0; fN2 = 0; fN3 = 0;
 		}
@@ -158,7 +158,7 @@ namespace lah {
 	template<class TYPE>
 	void Array4<TYPE>::dealloc() {
 		if(fElements != nullptr) {
-			::free(fElements);
+			delete[] fElements;
 			fElements = nullptr;
 			fN1 = 0; fN2 = 0; fN3 = 0; fN4 = 0;
 		}
@@ -166,7 +166,7 @@ namespace lah {
 	template<class TYPE>
 	void Array5<TYPE>::dealloc() {
 		if(fElements != nullptr) {
-			::free(fElements);
+			delete[] fElements;
 			fElements = nullptr;
 			fN1 = 0; fN2 = 0; fN3 = 0; fN4 = 0; fN5 = 0;
 		}
@@ -174,7 +174,7 @@ namespace lah {
 	template<class TYPE>
 	void Array6<TYPE>::dealloc() {
 		if(fElements != nullptr) {
-			::free(fElements);
+			delete[] fElements;
 			fElements = nullptr;
 			fN1 = 0; fN2 = 0; fN3 = 0; fN4 = 0; fN5 = 0; fN6 = 0;
 		}
@@ -182,7 +182,7 @@ namespace lah {
 	template<class TYPE>
 	void Array7<TYPE>::dealloc() {
 		if(fElements != nullptr) {
-			::free(fElements);
+			delete[] fElements;
 			fElements = nullptr;
 			fN1 = 0; fN2 = 0; fN3 = 0; fN4 = 0; fN5 = 0; fN6 = 0; fN7 = 0;
 		}
