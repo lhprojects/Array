@@ -55,10 +55,15 @@ namespace lah {
 		if(fElements == nullptr || fN1 != N1) {
 			dealloc();
 			fElements = new TYPE[N1];
-			fN1 = N1;
-			if (std::is_trivially_constructible<TYPE>::value) {
-				zeroize();
+		} else {
+			for (int i = 0; i < fN1; ++i) {
+				fElements[i].~TYPE();
 			}
+			new(fElements) TYPE[fN1];
+		}
+		fN1 = N1;
+		if (std::is_trivially_constructible<TYPE>::value) {
+			zeroize();
 		}
 	}
 	template<class TYPE>
@@ -66,10 +71,15 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2) {
 			dealloc();
 			fElements = new TYPE[N1*N2];
-			fN1 = N1; fN2 = N2;
-			if (std::is_trivially_constructible<TYPE>::value) {
-				zeroize();
+		} else {
+			for (int i = 0; i < fN1*fN2; ++i) {
+				fElements[i].~TYPE();
 			}
+			new(fElements) TYPE[fN1*fN2];
+		}
+		fN1 = N1; fN2 = N2;
+		if (std::is_trivially_constructible<TYPE>::value) {
+			zeroize();
 		}
 	}
 	template<class TYPE>
@@ -77,10 +87,15 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3];
-			fN1 = N1; fN2 = N2; fN3 = N3;
-			if (std::is_trivially_constructible<TYPE>::value) {
-				zeroize();
+		} else {
+			for (int i = 0; i < fN1*fN2*fN3; ++i) {
+				fElements[i].~TYPE();
 			}
+			new(fElements) TYPE[fN1*fN2*fN3];
+		}
+		fN1 = N1; fN2 = N2; fN3 = N3;
+		if (std::is_trivially_constructible<TYPE>::value) {
+			zeroize();
 		}
 	}
 	template<class TYPE>
@@ -88,10 +103,15 @@ namespace lah {
 		if(fElements == nullptr||fN1 != N1||fN2 != N2||fN3 != N3||fN4 != N4) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4];
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4;
-			if (std::is_trivially_constructible<TYPE>::value) {
-				zeroize();
+		} else {
+			for (int i = 0; i < fN1*fN2*fN3*fN4; ++i) {
+				fElements[i].~TYPE();
 			}
+			new(fElements) TYPE[fN1*fN2*fN3*fN4];
+		}
+		fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4;
+		if (std::is_trivially_constructible<TYPE>::value) {
+			zeroize();
 		}
 	}
 	template<class TYPE>
@@ -100,10 +120,15 @@ namespace lah {
 			|| fN5 != N5) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4*N5];
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5;
-			if (std::is_trivially_constructible<TYPE>::value) {
-				zeroize();
+		} else {
+			for (int i = 0; i < fN1*fN2*fN3*fN4*fN5; ++i) {
+				fElements[i].~TYPE();
 			}
+			new(fElements) TYPE[fN1*fN2*fN3*fN4*fN5];
+		}
+		fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5;
+		if (std::is_trivially_constructible<TYPE>::value) {
+			zeroize();
 		}
 	}
 	template<class TYPE>
@@ -112,10 +137,15 @@ namespace lah {
 			||fN5 != N5||fN6 != N6) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4*N5*N6];
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5; fN6 = N6;
-			if (std::is_trivially_constructible<TYPE>::value) {
-				zeroize();
+		} else {
+			for (int i = 0; i < fN1*fN2*fN3*fN4*fN5*fN6; ++i) {
+				fElements[i].~TYPE();
 			}
+			new(fElements) TYPE[fN1*fN2*fN3*fN4*fN5*fN6];
+		}
+		fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5; fN6 = N6;
+		if (std::is_trivially_constructible<TYPE>::value) {
+			zeroize();
 		}
 	}
 	template<class TYPE>
@@ -124,10 +154,15 @@ namespace lah {
 			||fN5 != N5||fN6 != N6||fN7 != N7) {
 			dealloc();
 			fElements = new TYPE[N1*N2*N3*N4*N5*N6*N7];
-			fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5; fN6 = N6; fN7 = N7;
-			if (std::is_trivially_constructible<TYPE>::value) {
-				zeroize();
+		} else {
+			for (int i = 0; i < fN1*fN2*fN3*fN4*fN5*fN6*fN7; ++i) {
+				fElements[i].~TYPE();
 			}
+			new(fElements) TYPE[fN1*fN2*fN3*fN4*fN5*fN6*fN7];
+		}
+		fN1 = N1; fN2 = N2; fN3 = N3; fN4 = N4; fN5 = N5; fN6 = N6; fN7 = N7;
+		if (std::is_trivially_constructible<TYPE>::value) {
+			zeroize();
 		}
 	}
 
