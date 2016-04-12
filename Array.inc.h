@@ -44,13 +44,6 @@ namespace lah {
 	}
 
 	template<class TYPE>
-	Array1<TYPE>::Array1(int N1) {
-		fElements = nullptr;
-		fN1 = 0;
-		alloc(N1);
-	}
-
-	template<class TYPE>
 	void Array1<TYPE>::alloc(int N1) {
 		if(fElements == nullptr || fN1 != N1) {
 			dealloc();
@@ -238,6 +231,13 @@ namespace lah {
 		return *(fElements + n1);
 	};
 	template<class TYPE>
+	TYPE const &Array1<TYPE>::operator()(int n1) const {
+#ifdef ARRAY_CHECK_BOUND
+		if (n1<0 || n1 >= fN1) ARRAY_ERROR("");
+#endif
+		return *(fElements + n1);
+	};
+	template<class TYPE>
 	TYPE &Array2<TYPE>::at(int n1, int n2) {
 #ifdef ARRAY_CHECK_BOUND
 		if(n1<0 || n1>=fN1) ARRAY_ERROR("");
@@ -250,6 +250,14 @@ namespace lah {
 #ifdef ARRAY_CHECK_BOUND
 		if(n1<0 || n1>=fN1) ARRAY_ERROR("");
 		if(n2<0 || n2>=fN2) ARRAY_ERROR("");
+#endif
+		return *(fElements + n1*fN2 + n2);
+	}
+	template<class TYPE>
+	TYPE const &Array2<TYPE>::operator()(int n1, int n2) const {
+#ifdef ARRAY_CHECK_BOUND
+		if (n1<0 || n1 >= fN1) ARRAY_ERROR("");
+		if (n2<0 || n2 >= fN2) ARRAY_ERROR("");
 #endif
 		return *(fElements + n1*fN2 + n2);
 	}
@@ -268,6 +276,15 @@ namespace lah {
 		if(n1<0 || n1>=fN1) ARRAY_ERROR("");
 		if(n2<0 || n2>=fN2) ARRAY_ERROR("");
 		if(n3<0 || n3>=fN3) ARRAY_ERROR("");
+#endif
+		return *(fElements + (n1*fN2 + n2)*fN3 + n3);
+	}
+	template<class TYPE>
+	TYPE const &Array3<TYPE>::operator()(int n1, int n2, int n3) const {
+#ifdef ARRAY_CHECK_BOUND
+		if (n1<0 || n1 >= fN1) ARRAY_ERROR("");
+		if (n2<0 || n2 >= fN2) ARRAY_ERROR("");
+		if (n3<0 || n3 >= fN3) ARRAY_ERROR("");
 #endif
 		return *(fElements + (n1*fN2 + n2)*fN3 + n3);
 	}
@@ -292,6 +309,16 @@ namespace lah {
 		return *(fElements + ((n1*fN2 + n2)*fN3 + n3)*fN4 + n4);
 	}
 	template<class TYPE>
+	TYPE const &Array4<TYPE>::operator()(int n1, int n2, int n3, int n4) const {
+#ifdef ARRAY_CHECK_BOUND
+		if (n1<0 || n1 >= fN1) ARRAY_ERROR("");
+		if (n2<0 || n2 >= fN2) ARRAY_ERROR("");
+		if (n3<0 || n3 >= fN3) ARRAY_ERROR("");
+		if (n4<0 || n4 >= fN4) ARRAY_ERROR("");
+#endif
+		return *(fElements + ((n1*fN2 + n2)*fN3 + n3)*fN4 + n4);
+	}
+	template<class TYPE>
 	TYPE &Array5<TYPE>::at(int n1, int n2, int n3, int n4, int n5) {
 #ifdef ARRAY_CHECK_BOUND
 		if(n1<0 || n1>=fN1) ARRAY_ERROR("");
@@ -310,6 +337,17 @@ namespace lah {
 		if(n3<0 || n3>=fN3) ARRAY_ERROR("");
 		if(n4<0 || n4>=fN4) ARRAY_ERROR("");
 		if(n5<0 || n5>=fN5) ARRAY_ERROR("");
+#endif
+		return *(fElements + (((n1*fN2 + n2)*fN3 + n3)*fN4 + n4)*fN5 + n5);
+	}
+	template<class TYPE>
+	TYPE const &Array5<TYPE>::operator()(int n1, int n2, int n3, int n4, int n5) const {
+#ifdef ARRAY_CHECK_BOUND
+		if (n1<0 || n1 >= fN1) ARRAY_ERROR("");
+		if (n2<0 || n2 >= fN2) ARRAY_ERROR("");
+		if (n3<0 || n3 >= fN3) ARRAY_ERROR("");
+		if (n4<0 || n4 >= fN4) ARRAY_ERROR("");
+		if (n5<0 || n5 >= fN5) ARRAY_ERROR("");
 #endif
 		return *(fElements + (((n1*fN2 + n2)*fN3 + n3)*fN4 + n4)*fN5 + n5);
 	}
@@ -338,6 +376,18 @@ namespace lah {
 		return *(fElements + ((((n1*fN2 + n2)*fN3 + n3)*fN4 + n4)*fN5 + n5)*fN6 + n6);
 	}
 	template<class TYPE>
+	TYPE const &Array6<TYPE>::operator()(int n1, int n2, int n3, int n4, int n5, int n6) const {
+#ifdef ARRAY_CHECK_BOUND
+		if (n1<0 || n1 >= fN1) ARRAY_ERROR("");
+		if (n2<0 || n2 >= fN2) ARRAY_ERROR("");
+		if (n3<0 || n3 >= fN3) ARRAY_ERROR("");
+		if (n4<0 || n4 >= fN4) ARRAY_ERROR("");
+		if (n5<0 || n5 >= fN5) ARRAY_ERROR("");
+		if (n6<0 || n6 >= fN6) ARRAY_ERROR("");
+#endif
+		return *(fElements + ((((n1*fN2 + n2)*fN3 + n3)*fN4 + n4)*fN5 + n5)*fN6 + n6);
+	}
+	template<class TYPE>
 	TYPE &Array7<TYPE>::at(int n1, int n2, int n3, int n4, int n5, int n6, int n7) {
 #ifdef ARRAY_CHECK_BOUND
 		if(n1<0 || n1>=fN1) ARRAY_ERROR("");
@@ -360,6 +410,19 @@ namespace lah {
 		if(n5<0 || n5>=fN5) ARRAY_ERROR("");
 		if(n6<0 || n6>=fN6) ARRAY_ERROR("");
 		if(n7<0 || n7>=fN7) ARRAY_ERROR("");
+#endif
+		return *(fElements + (((((n1*fN2 + n2)*fN3 + n3)*fN4 + n4)*fN5 + n5)*fN6 + n6)*fN7 + n7);
+	}
+	template<class TYPE>
+	TYPE const &Array7<TYPE>::operator()(int n1, int n2, int n3, int n4, int n5, int n6, int n7) const {
+#ifdef ARRAY_CHECK_BOUND
+		if (n1<0 || n1 >= fN1) ARRAY_ERROR("");
+		if (n2<0 || n2 >= fN2) ARRAY_ERROR("");
+		if (n3<0 || n3 >= fN3) ARRAY_ERROR("");
+		if (n4<0 || n4 >= fN4) ARRAY_ERROR("");
+		if (n5<0 || n5 >= fN5) ARRAY_ERROR("");
+		if (n6<0 || n6 >= fN6) ARRAY_ERROR("");
+		if (n7<0 || n7 >= fN7) ARRAY_ERROR("");
 #endif
 		return *(fElements + (((((n1*fN2 + n2)*fN3 + n3)*fN4 + n4)*fN5 + n5)*fN6 + n6)*fN7 + n7);
 	}

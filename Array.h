@@ -12,12 +12,13 @@ namespace lah {
 	template<class TYPE>
 	struct Array1 {
 
-		Array1();
-		Array1(int N1);
+		Array1() noexcept;
+		Array1(int N1) : Array1() { alloc(N1); }
 		void alloc(int N1);
-		void dealloc();
+		void dealloc() noexcept;
 		TYPE &at(int n1);
 		TYPE &operator()(int n1);
+		TYPE const &operator()(int n1) const;
 		void zeroize();
 		void assign_zero();
 		TYPE *begin() { return fElements; }
@@ -35,11 +36,13 @@ namespace lah {
 	template<class TYPE>
 	struct Array2 {
 
-		Array2();
+		Array2() noexcept;
+		Array2(int N1, int N2) : Array2() { alloc(N1, N2); }
 		void alloc(int N1, int N2);
 		void dealloc();
 		TYPE &at(int n1, int n2);
 		TYPE &operator()(int n1, int n2);
+		TYPE const &operator()(int n1, int n2) const;
 		void zeroize();
 		void assign_zero();
 		int size1() const;
@@ -54,11 +57,13 @@ namespace lah {
 	template<class TYPE>
 	struct Array3 {
 
-		Array3();
+		Array3() noexcept;
+		Array3(int N1, int N2, int N3) : Array3() { alloc(N1, N2, N3); }
 		void alloc(int N1, int N2, int N3);
 		void dealloc();
 		TYPE &at(int n1, int n2, int n3);
 		TYPE &operator()(int n1, int n2, int n3);
+		TYPE const &operator()(int n1, int n2, int n3) const;
 		void zeroize();
 		void assign_zero();
 		int size1() const;
@@ -73,11 +78,13 @@ namespace lah {
 	template<class TYPE>
 	struct Array4 {
 
-		Array4();
+		Array4() noexcept;
+		Array4(int N1, int N2, int N3, int N4) : Array4() { alloc(N1, N2, N3, N4); }
 		void alloc(int N1, int N2, int N3, int N4);
 		void dealloc();
 		TYPE &at(int n1, int n2, int n3, int n4);
 		TYPE &operator()(int n1, int n2, int n3, int n4);
+		TYPE const &operator()(int n1, int n2, int n3, int n4) const;
 		void zeroize();
 		TYPE *flat_begin() { return fElements; }
 		TYPE *flat_end() { return fElements + fN1*fN2*fN3*fN4; }
@@ -94,11 +101,12 @@ namespace lah {
 	template<class TYPE>
 	struct Array5 {
 
-		Array5();
+		Array5() noexcept;
+		Array5(int N1, int N2, int N3, int N4,int N5) : Array5() { alloc(N1, N2, N3, N4, N5); }
 		void alloc(int N1, int N2, int N3, int N4,int N5);
 		void dealloc();
 		TYPE &at(int n1, int n2, int n3, int n4, int n5);
-		TYPE &operator()(int n1, int n2, int n3, int n4, int n5);
+		TYPE const &operator()(int n1, int n2, int n3, int n4, int n5) const;
 		void zeroize();
 		void assign_zero();
 		~Array5();
@@ -112,11 +120,12 @@ namespace lah {
 	template<class TYPE>
 	struct Array6 {
 
-		Array6();
+		Array6() noexcept;
+		Array6(int N1, int N2, int N3, int N4, int N5, int N6) : Array6() { alloc(N1, N2, N3, N4, N5, N6); }
 		void alloc(int N1, int N2, int N3, int N4, int N5, int N6);
 		void dealloc();
 		TYPE &at(int n1, int n2, int n3, int n4, int n5, int n6);
-		TYPE &operator()(int n1, int n2, int n3, int n4, int n5, int n6);
+		TYPE const &operator()(int n1, int n2, int n3, int n4, int n5, int n6) const;
 		void zeroize();
 		void assign_zero();
 		~Array6();
@@ -130,11 +139,12 @@ namespace lah {
 	template<class TYPE>
 	struct Array7 {
 
-		Array7();
+		Array7() noexcept;
+		Array7(int N1, int N2, int N3, int N4, int N5, int N6, int N7) : Array7() { alloc(N1, N2, N3, N4, N5, N6, N7); }
 		void alloc(int N1, int N2, int N3, int N4, int N5, int N6, int N7);
 		void dealloc();
 		TYPE &at(int n1, int n2, int n3, int n4, int n5, int n6, int n7);
-		TYPE &operator()(int n1, int n2, int n3, int n4, int n5, int n6, int n7);
+		TYPE const &operator()(int n1, int n2, int n3, int n4, int n5, int n6, int n7) const;
 		void zeroize();
 		void assign_zero();
 		int size1() const;
